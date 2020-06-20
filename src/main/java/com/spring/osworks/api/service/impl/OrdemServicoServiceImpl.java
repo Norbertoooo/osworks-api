@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +29,7 @@ public class OrdemServicoServiceImpl implements OrdemServicoService {
         Cliente cliente = clienteService.getClienteById(ordemServico.getCliente().getId())
                 .orElseThrow(() -> new DomainException("Cliente não encontrado"));
         ordemServico.setCliente(cliente);
-        ordemServico.setDataAbertura(LocalDateTime.now());
+        ordemServico.setDataAbertura(OffsetDateTime.now());
         ordemServico.setStatus(StatusOrdemServico.ABERTA);
         return ordemServicoRepository.save(ordemServico);
     }

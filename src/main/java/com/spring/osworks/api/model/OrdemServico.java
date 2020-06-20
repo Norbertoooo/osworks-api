@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.groups.ConvertGroup;
 import javax.validation.groups.Default;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @Entity @Data
 @AllArgsConstructor
@@ -28,10 +28,10 @@ public class OrdemServico {
     private Double preco;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private LocalDateTime dataAbertura;
+    private OffsetDateTime dataAbertura;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private LocalDateTime dataFinalizacao;
+    private OffsetDateTime dataFinalizacao;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @Enumerated(EnumType.STRING)
